@@ -27,13 +27,6 @@ public:
     ~GaugeField() {delete[] Links; delete[] FieldStrength;}
     string ConfigFileName = "NoConfiguration"; // Default configuration name, meaning no input file was used
 
-    //TODO: remember to re-calculate the field strength when the gauge links are modified
-    //TODO: we need to be mindful of the order of applying static projection, stout smearing, and field strength calculation
-    //1) Apply static projection
-    //2) Apply stout smearing
-    //3) Compute field strengths
-    //4) Use the gauge field and field strengths for fermion operations
-
     t_complex* Links;
     int        LinksSize;
     t_complex* Link(int x, uint mu) {return Links + NCOLOR2*(x*4 + mu);};
